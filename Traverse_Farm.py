@@ -10,11 +10,9 @@ def traverse():
 	
 	if x % 2 == 0 and y != get_world_size()-1:
 		move(North)
-	elif y == get_world_size()-1 or y == get_world_size()-1:
+	elif y == get_world_size()-1 or y == 0:
 		move(East)
-	elif x % 2 != 0 and y != 0:
+	elif x % 2 != 0:
 		move(South)
 	elif x == get_world_size()-1 and y == 0:
 		reset_pos()
-	else:
-		move(East)
