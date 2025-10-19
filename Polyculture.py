@@ -1,0 +1,55 @@
+import Plantation
+import Equilibrium_Function
+
+dict1 = {}
+
+def main():
+	def harv():
+		if(can_harvest()):
+			harvest()
+			
+	def reset_pos():
+		while get_pos_y() != 0:
+			move(South)
+		while get_pos_x() != 0:
+			move(West)
+			
+	def poly_check(dict):
+		if get_companion() != None:
+			plant_type, coordinates = get_companion()
+			dict[(coordinates)] = plant_type
+			x, y = get_pos_x(),get_pos_y()
+			if (x, y) in dict:
+				if dict[(x,y)] == Entities.Carrot:
+					Plantation.getCarrot()
+				elif dict[(x,y)] == Entities.Grass:
+					Plantation.getHay()
+				else:
+					plant(dict[(x,y)])
+				dict.pop((x,y)) # Remove the value after planting the companion
+		else:
+			list = [Plantation.getHay, Plantation.getWood, Plantation.getCarrot]
+			list[random()*len(list)//1]()
+				
+	while True:
+		for i in range(get_world_size()):
+			for j in range(get_world_size()-1):
+				harv()
+				poly_check(dict1)
+				if i % 2 == 0:
+					move(North)
+				else:
+					move(South)
+			
+			harv()
+			poly_check(dict1)
+			if i == get_world_size()-1:
+				reset_pos()
+			else:
+				move(East)
+		#Equilibrium_Function.main()
+	
+		
+if __name__ == "__main__":
+	main()
+	
