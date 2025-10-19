@@ -8,18 +8,13 @@ def reset_pos():
 def traverse():
 	x, y = get_pos_x(), get_pos_y()
 	
-	for i in range(get_world_size()):
-		for j in range(get_world_size()-1):
-			if i % 2 == 0:
-				move(North)
-				break
-			else:
-				move(South)
-				break
-		
-		if i == get_world_size()-1:
-			reset_pos()
-			break
-		else:
-			move(East)
-			break
+	if x % 2 == 0 and y != get_world_size()-1:
+		move(North)
+	elif y == get_world_size()-1 or y == get_world_size()-1:
+		move(East)
+	elif x % 2 != 0 and y != 0:
+		move(South)
+	elif x == get_world_size()-1 and y == 0:
+		reset_pos()
+	else:
+		move(East)
