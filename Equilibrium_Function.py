@@ -16,9 +16,12 @@ def main():
 		if hay_num <= wood_num and hay_num < pumpkin_num:
 			Plantation.getHay()
 		elif wood_num <= hay_num and wood_num < pumpkin_num:
-			Plantation.getWood(location)
+			Plantation.getWood()
 		else:
-			Plantation.getPumpkin()
+			if carrot_num < 10000:
+				Plantation.getCarrot()
+			#else:
+				#Plantation.getPumpkin()
 
 	while True:
 		hay_num = num_items(Items.Hay)
