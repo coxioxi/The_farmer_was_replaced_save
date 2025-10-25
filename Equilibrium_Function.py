@@ -14,7 +14,9 @@ def main():
 		wood_num = num_items(Items.Wood)
 		carrot_num = num_items(Items.Carrot)
 		pumpkin_num = num_items(Items.Pumpkin)
-		
+
+		Plantation.harv()
+		Plantation.waterAnal()
 		if hay_num <= wood_num and hay_num < pumpkin_num:
 			Plantation.getHay()
 		elif wood_num <= hay_num and wood_num < pumpkin_num:
@@ -27,9 +29,6 @@ def main():
 
 	location = 0
 	while True:
-		
-		Plantation.harv()
-		Plantation.waterAnal()
 		evaluate_plant(location)
 		Traverse_Farm.main()
 		location += 1
