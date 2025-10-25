@@ -1,20 +1,19 @@
+import Traverse_Farm
 import Plantation
 import Equilibrium_Function
 
 dict1 = {}
 
-def main():
-	def harv():
-		if(can_harvest()):
-			harvest()
-			
+def main():		
 	def reset_pos():
 		while get_pos_y() != 0:
 			move(South)
 		while get_pos_x() != 0:
 			move(West)
-			
+	
 	def poly_check(dict):
+		Plantation.harv()
+		Plantation.waterAnal()
 		if get_companion() != None:
 			plant_type, coordinates = get_companion()
 			dict[(coordinates)] = plant_type
@@ -32,22 +31,8 @@ def main():
 			list[random()*len(list)//1]()
 				
 	while True:
-		for i in range(get_world_size()):
-			for j in range(get_world_size()-1):
-				harv()
-				poly_check(dict1)
-				if i % 2 == 0:
-					move(North)
-				else:
-					move(South)
-			
-			harv()
-			poly_check(dict1)
-			if i == get_world_size()-1:
-				reset_pos()
-			else:
-				move(East)
-		#Equilibrium_Function.main()
+		poly_check(dict1)
+		Traverse_Farm.main()
 	
 		
 if __name__ == "__main__":

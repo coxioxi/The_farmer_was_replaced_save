@@ -8,10 +8,6 @@ def main():
 			move(South)
 		while get_pos_x() != 0:
 			move(West)
-	
-	def harv():
-		if(can_harvest()):
-			harvest()
 			
 	def evaluate_plant(position):
 		hay_num = num_items(Items.Hay)
@@ -32,10 +28,10 @@ def main():
 	location = 0
 	while True:
 		
-		harv()
+		Plantation.harv()
 		Plantation.waterAnal()
 		evaluate_plant(location)
-		Traverse_Farm.traverse()
+		Traverse_Farm.main()
 		location += 1
 
 			

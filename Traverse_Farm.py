@@ -1,11 +1,4 @@
-def reset_pos():
-	x, y = get_pos_x(), get_pos_y()
-	while y != 0:
-		move(South)
-	while x != 0:
-		move(West)
-
-def traverse():
+def main():
 	moved = False
 
 	if get_pos_x() % 2 == 0 and get_pos_y() != get_world_size()-1:
@@ -19,4 +12,7 @@ def traverse():
 
 	if (not moved and (get_pos_y() == get_world_size()-1 or get_pos_y() == 0)):
 		move(East)
+
+if __name__ == "__main__":
+	main()
 		
