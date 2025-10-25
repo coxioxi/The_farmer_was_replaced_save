@@ -6,13 +6,17 @@ def reset_pos():
 		move(West)
 
 def traverse():
-	x, y = get_pos_x(), get_pos_y()
-	
-	if x % 2 == 0 and y != get_world_size()-1:
+	moved = False
+
+	if get_pos_x() % 2 == 0 and get_pos_y() != get_world_size()-1:
 		move(North)
-	elif y == get_world_size()-1 or y == 0:
-		move(East)
-	elif x % 2 != 0:
+		if get_pos_y() + 1 != get_world_size()-1:
+			moved = True
+	elif get_pos_x() % 2 != 0 and get_pos_y() != 0:
 		move(South)
-	elif x == get_world_size()-1 and y == 0:
-		reset_pos()
+		if get_pos_y() - 1 != 0:
+			moved = True
+
+	if (not moved and (get_pos_y() == get_world_size()-1 or get_pos_y() == 0)):
+		move(East)
+		
