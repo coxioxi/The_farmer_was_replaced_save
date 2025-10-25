@@ -1,3 +1,4 @@
+import Choose_Class
 import Traverse_Farm
 import Plantation
 import Equilibrium_Function
@@ -5,12 +6,6 @@ import Equilibrium_Function
 dict1 = {}
 
 def main():		
-	def reset_pos():
-		while get_pos_y() != 0:
-			move(South)
-		while get_pos_x() != 0:
-			move(West)
-	
 	def poly_check(dict):
 		Plantation.harv()
 		Plantation.waterAnal()
@@ -30,9 +25,10 @@ def main():
 			list = [Plantation.getHay, Plantation.getWood, Plantation.getCarrot]
 			list[random()*len(list)//1]()
 				
-	while True:
+	while True:	
 		poly_check(dict1)
 		Traverse_Farm.main()
+		Choose_Class.main(True)
 	
 		
 if __name__ == "__main__":

@@ -1,4 +1,3 @@
-import Reset_position
 def getWood():
 	location = 0
 	if location % 2 != 0:

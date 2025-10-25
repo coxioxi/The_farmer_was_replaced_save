@@ -1,14 +1,9 @@
+import Choose_Class
 import Traverse_Farm
 import Plantation
 import Polyculture
 
-def main():
-	def reset_pos():
-		while get_pos_y() != 0:
-			move(South)
-		while get_pos_x() != 0:
-			move(West)
-			
+def main():	
 	def evaluate_plant(position):
 		hay_num = num_items(Items.Hay)
 		wood_num = num_items(Items.Wood)
@@ -22,7 +17,7 @@ def main():
 		elif wood_num <= hay_num and wood_num < pumpkin_num:
 			Plantation.getWood(position)
 		else:
-			if carrot_num < 10000:
+			if pumpkin_num > 2 * carrot_num:
 				Plantation.getCarrot()
 			else:
 				Plantation.getPumpkin()
@@ -32,6 +27,7 @@ def main():
 		evaluate_plant(location)
 		Traverse_Farm.main()
 		location += 1
+		Choose_Class.main(False)
 
 			
 if __name__ == "__main__":
