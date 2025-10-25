@@ -7,8 +7,6 @@ dict1 = {}
 
 def main():		
 	def poly_check(dict):
-		Plantation.harv()
-		Plantation.waterAnal()
 		if get_companion() != None:
 			plant_type, coordinates = get_companion()
 			dict[(coordinates)] = plant_type
@@ -24,6 +22,8 @@ def main():
 		else:
 			list = [Plantation.getHay, Plantation.getWood, Plantation.getCarrot]
 			list[random()*len(list)//1]()
+		Plantation.harv()
+		Plantation.waterAnal()
 				
 	while True:	
 		poly_check(dict1)
