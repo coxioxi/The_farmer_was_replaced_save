@@ -11,10 +11,11 @@ def main():
 
 	# Check the item with least amount and plant it	
 	while True:
-		hay_num = num_items(Items.Hay)
-		wood_num = num_items(Items.Wood)
-		carrot_num = num_items(Items.Carrot)
-		pumpkin_num = num_items(Items.Pumpkin)
+		if get_pos_x() == 0 and get_pos_y() == 0:
+			hay_num = num_items(Items.Hay)
+			wood_num = num_items(Items.Wood)
+			carrot_num = num_items(Items.Carrot)
+			pumpkin_num = num_items(Items.Pumpkin)
 
 		Plantation.waterAnal()
 		if hay_num <= wood_num and hay_num < pumpkin_num:
